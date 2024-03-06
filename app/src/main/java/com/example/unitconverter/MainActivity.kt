@@ -173,7 +173,7 @@ fun UnitConverter() {
         Spacer(modifier = Modifier.height(16.dp))   // like here
 
         // Result Text
-        Text("Result: $outputValue $outputUnit", style = MaterialTheme.typography.headlineMedium)
+        Text("Result: $outputValue $outputUnit", style = MaterialTheme.typography.headlineMedium)   // MaterialTheme is used in android since android 6
     }
 }
 
