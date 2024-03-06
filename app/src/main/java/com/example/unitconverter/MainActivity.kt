@@ -75,8 +75,11 @@ fun UnitConverter() {
         verticalArrangement = Arrangement.Center,   //It vertically arranges the content of the column
         horizontalAlignment = Alignment.CenterHorizontally   //It horizontally aligns the content of the column
     ) {   // Here all the UI elements will be stacked below each other
-        Text("Unit Converter") //This is used to display text on the screen
+
+        Text("Unit Converter", style = MaterialTheme.typography.headlineLarge) //This is used to display text on the screen, style = MaterialTheme.typography.headlineLarge is used to change the font of the text
+
         Spacer(modifier = Modifier.height(16.dp))   //A spacer is used to give space between two UI components, its advantage is that it can be reused for many UI components
+
         OutlinedTextField(
             value = inputValue,
             onValueChange = {
@@ -86,7 +89,9 @@ fun UnitConverter() {
             },
             label = {Text(text = "Enter Value")}    //Text to be displayed inside the OutlinedTextField
             )
+
         Spacer(modifier = Modifier.height(16.dp))   //like here
+
         Row {  // Here all the UI elements will be stacked next to each other
 //            val context = LocalContext.current      // In order to create a toast we need to have the context in which the toast is displayed, LocalContext means the toast should run in the app only
 //            Button(onClick = {Toast.makeText(context,"Thanks for clicking",Toast.LENGTH_LONG).show()}) {    //We need to show() a toast after its creation
@@ -103,7 +108,7 @@ fun UnitConverter() {
                     DropdownMenuItem(text = { Text(text = "Centimeters")}, onClick = {
                         inputUnit = "Centimeters"
                         iExpanded = false
-                        iConversionFactor.doubleValue = 0.1
+                        iConversionFactor.doubleValue = 0.01
                         convertUnits()
                     })
                     DropdownMenuItem(text = { Text(text = "Meters") }, onClick = {
@@ -126,7 +131,9 @@ fun UnitConverter() {
                     })
                 }
             }
+
             Spacer(modifier = Modifier.width(16.dp))
+
             // Output Box
             Box {   //This is needed to create a drop down menu
                 // Output Unit Button
@@ -162,8 +169,11 @@ fun UnitConverter() {
                 }
             }
         }
+
         Spacer(modifier = Modifier.height(16.dp))   // like here
-        Text("Result: $outputValue $outputUnit")
+
+        // Result Text
+        Text("Result: $outputValue $outputUnit", style = MaterialTheme.typography.headlineMedium)
     }
 }
 
