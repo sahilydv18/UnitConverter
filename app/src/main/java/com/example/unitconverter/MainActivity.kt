@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
 fun UnitConverter() {
 
     var inputValue by remember { mutableStateOf("") }   // A state for the input value
-    var outputValue by remember { mutableStateOf("") }  // A state for the output value
+    var outputValue by remember { mutableStateOf("0.0") }  // A state for the output value
     var inputUnit by remember { mutableStateOf("Meters") } // A state for the input unit, taking default value as meters
     var outputUnit by remember { mutableStateOf("Meters") } // State for the output unit, taking default value as meters
     var iExpanded by remember { mutableStateOf(false) } // State whether the input drop down menu is extended or not
@@ -101,7 +101,7 @@ fun UnitConverter() {
                 // Input Unit Button
                 Button(onClick = { iExpanded = true  }) {
                     Text(inputUnit)
-                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")    //Adding the arrow down icon using this, contentDescription means what the icon means this is used in accessibility
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Input Drop Down Menu")    //Adding the arrow down icon using this, contentDescription means what the icon means this is used in accessibility
                 }
                 DropdownMenu(expanded = iExpanded, onDismissRequest = { iExpanded = false }) {   //This is used to create a drop down menu, expanded means that if the menu will be opened by default or not and onDismissRequest means what should happen when the menu closes
                     DropdownMenuItem(text = { Text(text = "Centimeters")}, onClick = {
@@ -138,7 +138,7 @@ fun UnitConverter() {
                 // Output Unit Button
                 Button(onClick = { oExpanded = true }) {
                     Text(outputUnit)
-                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")    //Adding the arrow down icon using this, contentDescription means what the icon means this is used in accessibility
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Output Drop Down Menu")    //Adding the arrow down icon using this, contentDescription means what the icon means this is used in accessibility
                 }
                 DropdownMenu(expanded = oExpanded, onDismissRequest = { oExpanded = false }) {
                     DropdownMenuItem(text = { Text(text = "Centimeters")}, onClick = {
